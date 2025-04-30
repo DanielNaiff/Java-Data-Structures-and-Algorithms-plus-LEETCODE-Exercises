@@ -7,6 +7,7 @@ public class LinkedList {
     class Node{
         int value;
         Node node;
+        Node next;
 
         Node(int value){
             this.value = value;
@@ -23,11 +24,23 @@ public class LinkedList {
 
     public void printList(){
         Node temp = head;
-
         while (temp != null){
             System.out.println(temp.value);
-            temp = temp.node;
+            temp = temp.next;
         }
+    }
+
+    public void append(int value){
+        Node newNode = new Node(value);
+
+        if(length == 0){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail.next = newNode;
+            tail = newNode;
+        }
+        length++;
     }
 
     public void getHead(){
