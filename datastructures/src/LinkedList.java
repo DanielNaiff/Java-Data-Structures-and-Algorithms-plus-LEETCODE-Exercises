@@ -93,6 +93,22 @@ public class LinkedList {
         return temp;
     }
 
+    public Node get(int index){
+        int i = 0;
+        Node temp = head;
+
+        if(index < 0 || index >= length){
+            return null;
+        }
+
+        while (i != index){
+            temp = temp.next;
+            i++;
+        }
+
+        return temp;
+    }
+
     public void getHead(){
         System.out.println("Head: " + head.value);
     }
