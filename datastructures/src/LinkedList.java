@@ -14,6 +14,7 @@ public class LinkedList {
         }
     }
 
+    // Construtor: cria a lista com o primeiro nó
     public LinkedList(int value){
         Node newNode = new Node(value);
 
@@ -22,6 +23,7 @@ public class LinkedList {
         length = 1;
     }
 
+    // Imprime todos os valores da lista
     public void printList(){
         Node temp = head;
         while (temp != null){
@@ -30,6 +32,7 @@ public class LinkedList {
         }
     }
 
+    // Adiciona um novo nó ao final da lista
     public void append(int value){
         Node newNode = new Node(value);
 
@@ -43,20 +46,24 @@ public class LinkedList {
         length++;
     }
 
+    // Remove o último nó da lista e o retorna
     public Node removeLast(){
         if(length == 0) return null;
 
         Node temp = head;
         Node pre = head;
 
+        // Percorre até o penúltimo nó
         while(temp.next != null){
             pre = temp;
             temp = temp.next;
         }
 
         tail = pre;
-        tail.next = null;
+        tail.next = null; // Remove a referência ao último nó
         length--;
+
+        // Se a lista ficar vazia, zera head e tail
         if(length == 0){
             head = null;
             tail = null;
@@ -65,6 +72,7 @@ public class LinkedList {
         return temp;
     }
 
+    // Adiciona um novo nó no início da lista
     public void prepend(int value){
         Node newNode = new Node(value);
 
@@ -79,6 +87,7 @@ public class LinkedList {
         length++;
     }
 
+    // Remove o primeiro nó da lista e o retorna
     public Node removeFirst(){
         if(length == 0) return null;
         Node temp = head;
@@ -93,6 +102,7 @@ public class LinkedList {
         return temp;
     }
 
+    // Retorna o nó na posição especificada (índice)
     public Node get(int index){
         int i = 0;
         Node temp = head;
