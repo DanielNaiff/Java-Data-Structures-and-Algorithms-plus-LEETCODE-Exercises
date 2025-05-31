@@ -119,6 +119,7 @@ public class LinkedList {
         return temp;
     }
 
+    //Muda o valor em um indice
     public boolean set(int index, int value){
         Node temp = get(index);
 
@@ -129,6 +130,31 @@ public class LinkedList {
         }
 
         return false;
+    }
+
+    //Insere um novo no
+    public boolean insert(int index, int value){
+        if(index < 0 || index > length){
+            return false;
+        }
+
+        if(index == 0){
+            prepend(value);
+            return true;
+        }
+
+        if(index == length){
+            append(value);
+            return true;
+        }
+        Node newNode = new Node(value);
+
+        Node temp = get(index - 1);
+        newNode.next = get(index);
+        temp.next = newNode;
+        length++;
+        return true;
+
     }
 
     public void getHead(){
